@@ -3,6 +3,13 @@ created by Reaktor Innovations and University of Helsinki.
 Copy the template, paste it to your GitHub README and edit! -->
 # SpiritQuest
 Final project for the Building AI course
+
+
+![Search](https://upload.wikimedia.org/wikipedia/commons/5/5e/Sleeping_cat_on_her_back.jpg)
+
+
+
+
 ## Summary
 SpiritQuest is a comprehensive platform designed to assist individuals in discovering meaningful spiritual, religious, and fulfilling experiences that align with their unique preferences. By utilizing interactive questionnaires, writing exercises and your past activity, SpiritQuest provides tailored recommendations for practices, resources, and vibrant communities, both in virtual and physical settings. This platform addresses the contemporary challenges of spiritual emptiness and isolation prevalent in today's society.
 ## Background

@@ -4,20 +4,11 @@ Copy the template, paste it to your GitHub README and edit! -->
 # SpiritQuest
 Final project for the Building AI course
 
-
-![Search](https://github.com/leoalanya/Building-AI-Project/blob/main/image.jpeg?raw=true)
-
-
-<img src="https://github.com/leoalanya/Building-AI-Project/blob/main/image.jpeg?raw=true" width="500">
-
-
-
-
-
-
+![image](https://github.com/leoalanya/Building-AI-Project/assets/106389334/5f56cf31-aea9-428f-aa1e-bf57792dff36)
 
 ## Summary
 SpiritQuest is a comprehensive platform designed to assist individuals in discovering meaningful spiritual, religious, and fulfilling experiences that align with their unique preferences. By utilizing interactive questionnaires, writing exercises and your past activity, SpiritQuest provides tailored recommendations for practices, resources, and vibrant communities, both in virtual and physical settings. This platform addresses the contemporary challenges of spiritual emptiness and isolation prevalent in today's society.
+
 ## Background
 Spiritual disconnection and the quest for meaning are increasingly common challenges in the modern world. The advent of the scientific and technological age have eroded traditional religious traditions, with mixed results. On the other hand, the spiritually curious  find themselves adrift in a sea of options without a clear path to fulfilling their needs. The fast-paced nature of modern life, coupled with the prevalence of digital technology, has led to a disconnection from traditional spiritual practices and communities.
 
@@ -31,6 +22,8 @@ Spiritual disconnection and the quest for meaning are increasingly common challe
 4. Algorithm Analysis: The AI algorithm analyzes the responses from the questionnaires and reflective writing exercises to generate personalized recommendations.
 
 6. Practices, Resources, and Communities: Based on the user's profile, SpiritQuest provides a list of recommended spiritual practices, resources (books, podcasts, videos), and communities (online forums, local groups) that align with their preferences.
+
+![image](https://github.com/leoalanya/Building-AI-Project/assets/106389334/227fbfbf-2a53-4eb2-81a3-b4d821c51426)
 
 ### Engagement and Community Building:
 7. Connection: Users can explore and connect with like-minded individuals and communities through the platform. SpiritQuest acts more as a launching path for spiritual exploration rather than the actual platform. Spiritual communities may be registered, but users are directed towards third party platforms such as discussion forums, social media pages, physical addresses etc.. 
@@ -50,13 +43,7 @@ SpiritQuest caters to individuals seeking meaningful spiritual experiences, rega
 * **User Education:** For those new to spiritual practices, the platform should provide educational resources and explanations to help users understand the terminology and concepts. This should include scientific and popular criticism of recommended practices and communities as well. 
 * **Serendipitous discovery:** The platform can introduce users to new practices or ideas that might align with their evolving interests, but also that are novel in some ways. This serendipitous discovery encourages users to explore beyond their comfort zone and prevents the creation of reccomendation bubbles.
 
-
-
-
-
-
-
-
+![image](https://github.com/leoalanya/Building-AI-Project/assets/106389334/0ba346ba-d758-4716-b0b7-90b616e0ecd4)
 
 
 ## Data sources and AI methods

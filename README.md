@@ -22,7 +22,7 @@ Spiritual disconnection and the quest for meaning are increasingly common challe
 ### Engagement and Community Building:
 7. Connection: Users can explore and connect with like-minded individuals and communities through the platform. SpiritQuest acts more as a launching path for spiritual exploration rather than the actual platform. Spiritual communities may be registered, but users are directed towards third party platforms such as discussion forums, social media pages, physical addresses etc.. 
 
-Continuous Improvement:
+### Continuous Improvement:
 8. Feedback Loop: As users engage with recommended practices and communities, they can provide feedback and insights on their experiences in the form of continuing questionnaires and writing exercises. This feedback helps SpiritQuest refine its recommendations and adapt to the user's evolving needs.
 
 ## Users & Considerations
@@ -51,8 +51,9 @@ SpiritQuest caters to individuals seeking meaningful spiritual experiences, rega
 ### Data Sources:
 
 1. User Input: The primary source of data comes from users' responses to interactive questionnaires and reflective writing exercises. These inputs provide insights into their values, preferences, and personal experiences.
-2. Community Engagement: User interactions within the platform's discussion forums, event attendance, and community connections provide valuable data on their engagement and interests.
-3. Resource Usage: Tracking the resources users access (books, podcasts, videos) helps refine recommendations and understand their preferred learning formats.
+2. As training data, we use surveys of spiritually engaged people, who take our questionnaires and rate their experiences (X). We then ask them what communities and practices they are engaged in (y). 
+3. Community Engagement: User interactions within the platform's discussion forums, event attendance, and community connections provide valuable data on their engagement and interests.
+4. Resource Usage: Tracking the resources users access (books, podcasts, videos) helps refine recommendations and understand their preferred learning formats.
 
 ### AI Methods
 
@@ -63,29 +64,104 @@ SpiritQuest caters to individuals seeking meaningful spiritual experiences, rega
 5. Feedback Loop Integration: User feedback on recommended practices, resources, and community experiences is analyzed using sentiment analysis and thematic analysis. This feedback loop helps the AI system refine its recommendations over time.
 6. Progress Tracking: The platform could implement progress tracking to monitor users' engagement and growth in their spiritual journey. Specifically, activity logs, engagement patterns and feedback contribute to the platform's ability to adapt and suggest new experiences.
 
+### Core Methods
+
+Let's go into more detail on the technical implementation of some of the AI methods used by SpiritQuest. 
+
+#### Reccomendation algorithm
+
+The central functionality of SpiritQuest is reccomending practices and communities based on questionaires and writing exercises. The main algorithm used is collaborative filtering. Collaborative filtering relies on the principle of user behavior similarity. It recommends items based on the preferences and actions of similar users. Initially, we use surveys of spiritually engaged people for training data, who take our questionnaires and rate their experiences (X). We then ask them what communities and practices they are engaged in (y). 
+
+Once we have enough user engagement, we use the following colaborative filtering algorithm. 
+
+1. User-Item Interaction Matrix: Create a matrix where rows represent users and columns represent spiritual practices, resources, and communities. Entries in the matrix indicate user interactions, such as ratings, clicks, or participation.
+2. User Similarity Calculation: Calculate the similarity between users based on their interactions. Common similarity metrics include cosine similarity or Pearson correlation.
+3. Neighborhood Selection: Identify a subset of similar users to the target user. This subset is known as the "neighborhood."
+4. Item Selection: Recommend items that the neighborhood users have interacted with but that the target user has not yet engaged with. These are items that the target user might find interesting based on the behavior of similar users.
+
+Additionally, content-based filtering involves the following steps:
+
+1. Item Profile Creation: Each spiritual practice, resource, or community is characterized by attributes such as type (meditation, yoga, discussions), keywords, and themes.
+2. User Profile Creation: Construct a user profile based on their preferences, as inferred from their responses to questionnaires and writing exercises. These preferences are translated into relevant attributes.
+3. Feature Vector Representation: Convert the item profiles and user profiles into numerical feature vectors, where each attribute is assigned a weight based on its importance.
+4. Similarity Calculation: Calculate the similarity between the user profile and item profiles using techniques like cosine similarity or Jaccard index.
+5. Recommendation: Recommend items that are most similar to the user's profile. These are items that align with the user's indicated preferences and interests.
+
+Hybrid Approach: The hybrid recommendation system combines the collaborative filtering and content-based filtering outputs to provide more accurate and diverse recommendations. It mitigates some of the limitations of each individual method, such as the cold start problem (lack of initial user interactions) in collaborative filtering and the inability to capture new interests in content-based filtering.
+
+**Example:**
 
 ```
-def main():
-   countries = ['Denmark', 'Finland', 'Iceland', 'Norway', 'Sweden']
-   pop = [5615000, 5439000, 324000, 5080000, 9609000]   # not actually needed in this exercise...
-   fishers = [1891, 2652, 3800, 11611, 1757]
-   totPop = sum(pop)
-   totFish = sum(fishers)
-   # write your solution here
-   for i in range(len(countries)):
-      print("%s %.2f%%" % (countries[i], 100.0))    # current just prints 100%
-main()
+import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
+
+# Sample user-item interaction matrix (rows: users, columns: items)
+interaction_matrix = np.array([[1, 0, 1, 0, 1],
+                               [0, 1, 0, 1, 0],
+                               [1, 1, 0, 0, 0]])
+
+# Sample item attributes (rows: items, columns: attributes)
+item_attributes = np.array([[1, 1, 0, 0],
+                            [0, 1, 1, 0],
+                            [1, 0, 1, 1],
+                            [0, 0, 1, 1],
+                            [1, 0, 0, 1]])
+
+# Sample user preferences (values indicate importance)
+user_preferences = np.array([0.8, 0.5, 0.3, 0.2])
+
+# Collaborative filtering
+user_similarities = cosine_similarity(interaction_matrix)
+user_neighborhood = np.argsort(user_similarities[0])[::-1][1:2]  # Select top similar user
+
+# Content-based filtering
+content_similarities = cosine_similarity(item_attributes, [user_preferences])
+content_recommendations = np.argsort(content_similarities[:, 0])[::-1]
+
+# Hybrid recommendation
+hybrid_scores = user_similarities[0][user_neighborhood] * content_similarities[:, 0]
+hybrid_recommendations = np.argsort(hybrid_scores)[::-1]
+
+# Print recommendations
+print("Collaborative Filtering Recommendations:", user_neighborhood)
+print("Content-Based Filtering Recommendations:", content_recommendations)
+print("Hybrid Recommendations:", hybrid_recommendations)
+```
+
+#### Community detection algorithm
+
+To enhance community engagement, AI algorithms identify potential matches between users based on shared interests, location, and practices. K-means clustering can be used to create groups of similar users based on their preferences and interactions. Here's a simple Python example demonstrating how K-means clustering might be used in the context of the SpiritQuest recommendation system:
+
+```python
+import numpy as np
+from sklearn.cluster import KMeans
+
+# Sample user-item interaction matrix 
+# Each row of the matrix corresponds to a user, and each column corresponds to a specific item (practice, resource, or community).
+# 0 and 1 indicate wheter the user has engaged with the item.
+interaction_matrix = np.array([[1, 0, 1, 0, 1],
+                               [0, 1, 0, 1, 0],
+                               [1, 1, 0, 0, 0],
+                               [0, 1, 1, 0, 1],
+                               [1, 0, 0, 1, 0]])
+
+# Apply K-means clustering
+num_clusters = 3
+kmeans = KMeans(n_clusters=num_clusters, random_state=0)
+user_clusters = kmeans.fit_predict(interaction_matrix)
+
+# Print user clusters
+for user_id, cluster_id in enumerate(user_clusters):
+    print(f"User {user_id + 1} belongs to Cluster {cluster_id + 1}")
 ```
 
 
 
-Where does your data come from? Do you collect it yourself or do you use data collected by someone else?
-If you need to use links, here's an example:
-[Twitter API](https://developer.twitter.com/en/docs)
-| Syntax      | Description |
-| ----------- | ----------- |
-| Header      | Title       |
-| Paragraph   | Text        |
+
+
+
+
+
 ## Challenges
 What does your project _not_ solve? Which limitations and ethical considerations should be taken into account when deploying a solution like this?
 ## What next?

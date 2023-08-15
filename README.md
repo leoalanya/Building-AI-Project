@@ -5,7 +5,13 @@ Copy the template, paste it to your GitHub README and edit! -->
 Final project for the Building AI course
 
 
-![Search]([Contemporary young Man in Meditation 2023-05-11-2.jpg](https://upload.wikimedia.org/wikipedia/commons/5/54/Contemporary_young_Man_in_Meditation_2023-05-11-2.jpg))
+![Search](https://github.com/leoalanya/Building-AI-Project/blob/main/image.jpeg?raw=true)
+
+
+<img src="https://github.com/leoalanya/Building-AI-Project/blob/main/image.jpeg?raw=true" width="500">
+
+
+
 
 
 

@@ -7,6 +7,7 @@ Final project for the Building AI course
 SpiritQuest is a comprehensive platform designed to assist individuals in discovering meaningful spiritual, religious, and fulfilling experiences that align with their unique preferences. By utilizing interactive questionnaires, writing exercises and your past activity, SpiritQuest provides tailored recommendations for practices, resources, and vibrant communities, both in virtual and physical settings. This platform addresses the contemporary challenges of spiritual emptiness and isolation prevalent in today's society.
 ## Background
 Spiritual disconnection and the quest for meaning are increasingly common challenges in the modern world. The advent of the scientific and technological age have eroded traditional religious traditions, with mixed results. On the other hand, the spiritually curious  find themselves adrift in a sea of options without a clear path to fulfilling their needs. The fast-paced nature of modern life, coupled with the prevalence of digital technology, has led to a disconnection from traditional spiritual practices and communities.
+
 ## How is it used?
 ### Exploration and Discovery:
 1. Questionnaires: Users engage in interactive questionnaires that delve into their values, interests, and spiritual inclinations. These questions help the AI system understand their unique needs. 
@@ -24,7 +25,7 @@ Spiritual disconnection and the quest for meaning are increasingly common challe
 Continuous Improvement:
 8. Feedback Loop: As users engage with recommended practices and communities, they can provide feedback and insights on their experiences in the form of continuing questionnaires and writing exercises. This feedback helps SpiritQuest refine its recommendations and adapt to the user's evolving needs.
 
-## Users and Considerations
+## Users & Considerations
 SpiritQuest caters to individuals seeking meaningful spiritual experiences, regardless of their current level of engagement. This includes those who are new to exploring spirituality, as well as those looking to deepen their existing practices.
 
 **Needs to Consider:**
@@ -34,6 +35,8 @@ SpiritQuest caters to individuals seeking meaningful spiritual experiences, rega
 * **User Empowerment:** The platform should empower users to make their own decisions while offering guidance, avoiding any imposition of specific beliefs or practices. This is enforced by a diversity metric for reccommended practices and communities.
 * **User Feedback:** The feedback mechanism should be user-friendly and transparant, encouraging users to provide insights on their experiences, allowing SpiritQuest to continuously enhance its recommendations and sensitivity to users' needs. 
 * **User Education:** For those new to spiritual practices, the platform should provide educational resources and explanations to help users understand the terminology and concepts. This should include scientific and popular criticism of recommended practices and communities as well. 
+* **Serendipitous discovery:** The platform can introduce users to new practices or ideas that might align with their evolving interests, but also that are novel in some ways. This serendipitous discovery encourages users to explore beyond their comfort zone and prevents the creation of reccomendation bubbles.
+
 
 
 
@@ -44,9 +47,21 @@ SpiritQuest caters to individuals seeking meaningful spiritual experiences, rega
 
 
 ## Data sources and AI methods
-The psychological framework of the The Big Five model is used as another 
 
+### Data Sources:
 
+1. User Input: The primary source of data comes from users' responses to interactive questionnaires and reflective writing exercises. These inputs provide insights into their values, preferences, and personal experiences.
+2. Community Engagement: User interactions within the platform's discussion forums, event attendance, and community connections provide valuable data on their engagement and interests.
+3. Resource Usage: Tracking the resources users access (books, podcasts, videos) helps refine recommendations and understand their preferred learning formats.
+
+### AI Methods
+
+1. Natural Language Processing (NLP): NLP techniques are used to analyze users' written responses from the reflective writing exercises. This helps identify patterns, sentiments, and themes in their personal reflections.
+2. Machine Learning Algorithms: Machine learning algorithms, including collaborative filtering and content-based filtering, are employed to generate personalized recommendations based on users' input, behaviors, and preferences.
+3. Psychological Framework - Big Five Model: Incorporating the Big Five personality traits (Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism) adds a psychological dimension to the recommendations. These traits are determined in our questionaire. This helps alig recoomendations with users' personality traits and psychological profiles.
+4. Community Detection Algorithms: To enhance community engagement, AI algorithms identify potential matches between users based on shared interests, location, and practices. With mutual consent, matches can communicate about possibly exploring practices and communities together.
+5. Feedback Loop Integration: User feedback on recommended practices, resources, and community experiences is analyzed using sentiment analysis and thematic analysis. This feedback loop helps the AI system refine its recommendations over time.
+6. Progress Tracking: The platform could implement progress tracking to monitor users' engagement and growth in their spiritual journey. Specifically, activity logs, engagement patterns and feedback contribute to the platform's ability to adapt and suggest new experiences.
 
 
 ```

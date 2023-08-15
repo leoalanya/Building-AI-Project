@@ -91,34 +91,42 @@ Hybrid Approach: The hybrid recommendation system combines the collaborative fil
 
 **Example:**
 
-```
+```python
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 
-# Sample user-item interaction matrix (rows: users, columns: items)
+# COLLABORATIVE FILTERING
+
+# Each row of the matrix corresponds to a user, and each column corresponds to a specific item (practice, resource, or community).
+# 0 and 1 indicate wheter the user has engaged with the item.
 interaction_matrix = np.array([[1, 0, 1, 0, 1],
                                [0, 1, 0, 1, 0],
                                [1, 1, 0, 0, 0]])
 
-# Sample item attributes (rows: items, columns: attributes)
+user_similarities = cosine_similarity(interaction_matrix) # A matrix of user similarities where each element [i, j] represents the similarity between user i and user j
+user_neighborhood = np.argsort(user_similarities[0])[::-1][1:2]  # Identifies the neighborhood of similar users to the first user (index 0) and selects the top similar user. 
+
+# CONTENT BASED FILTERING
+
+# Each row corresponds to a specific spiritual practice, resource etc.. 
+# Each column represents an attribute of the corresponding item. (The type of practice, keywords, themes, format etc.)
 item_attributes = np.array([[1, 1, 0, 0],
                             [0, 1, 1, 0],
                             [1, 0, 1, 1],
                             [0, 0, 1, 1],
                             [1, 0, 0, 1]])
 
-# Sample user preferences (values indicate importance)
+# Sample user preferences. Values indicate the importance of a specific attribute for the user.
 user_preferences = np.array([0.8, 0.5, 0.3, 0.2])
 
-# Collaborative filtering
-user_similarities = cosine_similarity(interaction_matrix)
-user_neighborhood = np.argsort(user_similarities[0])[::-1][1:2]  # Select top similar user
+# Calculates the similarity between item attributes (rows) and the user's preferences (represented as a vector). It generates a similarity score for each item with respect to the user's preferences.
+content_similarities = cosine_similarity(item_attributes, [user_preferences]) 
+content_recommendations = np.argsort(content_similarities[:, 0])[::-1] # ranks the items based on their similarity to the user's preferences
 
-# Content-based filtering
-content_similarities = cosine_similarity(item_attributes, [user_preferences])
-content_recommendations = np.argsort(content_similarities[:, 0])[::-1]
 
-# Hybrid recommendation
+# HYBRID RECOMMENDATION
+
+# This score reflects the similarity of the user to the top similar user and the content similarity of items to the user's preferences.
 hybrid_scores = user_similarities[0][user_neighborhood] * content_similarities[:, 0]
 hybrid_recommendations = np.argsort(hybrid_scores)[::-1]
 

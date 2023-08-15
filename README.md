@@ -5,7 +5,7 @@ Copy the template, paste it to your GitHub README and edit! -->
 Final project for the Building AI course
 
 
-![Search](https://upload.wikimedia.org/wikipedia/commons/5/5e/Sleeping_cat_on_her_back.jpg)
+![Search]([Contemporary young Man in Meditation 2023-05-11-2.jpg](https://upload.wikimedia.org/wikipedia/commons/5/54/Contemporary_young_Man_in_Meditation_2023-05-11-2.jpg))
 
 
 
